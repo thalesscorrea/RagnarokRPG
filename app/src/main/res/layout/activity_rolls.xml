@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/button_melee_roll"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+        <Button
+            android:id="@+id/button_ranged_roll"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+        <Button
+            android:id="@+id/button_magic_roll"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/button_precision_roll"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+        <Button
+            android:id="@+id/button_dodge_roll"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+        <Button
+            android:id="@+id/button_critical_roll"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/button_defense_roll"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+        <Button
+            android:id="@+id/button_magic_defense_roll"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+        <Button
+            android:id="@+id/button_perfect_dodge_roll"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/rolls_result"
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+
+
+</LinearLayout>

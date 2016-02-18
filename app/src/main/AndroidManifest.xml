@@ -14,14 +14,17 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".CreateCharacterActivity"
             android:label="Character Creation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RollsActivity"
+            android:label="@string/title_activity_rolls"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
