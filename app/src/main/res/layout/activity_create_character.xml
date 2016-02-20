@@ -1,74 +1,124 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/creating_name"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Nome"/>
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
 
-        <EditText
-            android:id="@+id/creating_blvl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Level Base"/>
+            <EditText
+                android:id="@+id/creating_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Nome"
+                android:inputType="textCapSentences"/>
 
-        <EditText
-            android:id="@+id/creating_jlvl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Level Classe"/>
+            <EditText
+                android:id="@+id/creating_class"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Classe"
+                android:inputType="textCapSentences"/>
 
-        <EditText
-            android:id="@+id/creating_str"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Força"/>
+            <EditText
+                android:id="@+id/creating_blvl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Level Base"
+                android:inputType="number"/>
 
-        <EditText
-            android:id="@+id/creating_agi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Agilidade"/>
+            <EditText
+                android:id="@+id/creating_jlvl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Level Classe"
+                android:inputType="number"/>
 
-        <EditText
-            android:id="@+id/creating_vit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Vitalidade"/>
+            <EditText
+                android:id="@+id/creating_str"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Força"
+                android:inputType="number"/>
 
-        <EditText
-            android:id="@+id/creating_int"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Inteligência"/>
+            <EditText
+                android:id="@+id/creating_agi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Agilidade"
+                android:inputType="number"/>
 
-        <EditText
-            android:id="@+id/creating_dex"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Destreza"/>
+            <EditText
+                android:id="@+id/creating_vit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Vitalidade"
+                android:inputType="number"/>
 
-        <EditText
-            android:id="@+id/creating_luk"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Sorte"/>
+            <EditText
+                android:id="@+id/creating_int"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Inteligência"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/creating_dex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Destreza"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/creating_luk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Sorte"
+                android:inputType="number"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@android:color/holo_blue_dark">
+
+            <Button
+                android:id="@+id/button_roll"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Roll"
+                android:textSize="30sp"
+                android:textColor="#000000"/>
+
+            <Button
+                android:id="@+id/button_save"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Save"
+                android:textSize="30sp"
+                android:textColor="#000000"/>
 
     </LinearLayout>
-</ScrollView>
+</RelativeLayout>

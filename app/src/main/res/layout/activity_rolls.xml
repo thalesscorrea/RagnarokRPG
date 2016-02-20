@@ -13,17 +13,20 @@
         <Button
             android:id="@+id/button_melee_roll"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:background="@drawable/ic_melee" />
 
         <Button
             android:id="@+id/button_ranged_roll"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:background="@drawable/ic_ranged"/>
 
         <Button
             android:id="@+id/button_magic_roll"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:background="@drawable/ic_magic"/>
     </LinearLayout>
 
     <LinearLayout
@@ -35,17 +38,20 @@
         <Button
             android:id="@+id/button_precision_roll"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:background="@drawable/ic_precision"/>
 
         <Button
             android:id="@+id/button_dodge_roll"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:background="@drawable/ic_dodge"/>
 
         <Button
             android:id="@+id/button_critical_roll"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:background="@drawable/ic_critical"/>
     </LinearLayout>
 
     <LinearLayout
@@ -57,12 +63,14 @@
         <Button
             android:id="@+id/button_defense_roll"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:background="@drawable/ic_defense"/>
 
         <Button
             android:id="@+id/button_magic_defense_roll"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:background="@drawable/ic_magicdefense"/>
 
         <Button
             android:id="@+id/button_perfect_dodge_roll"

@@ -6,6 +6,7 @@ public class CharacterCreator {
     Character character;
 
     private EditText name;
+    private EditText classe;
     private EditText levelbase;
     private EditText leveljob;
     private EditText strength;
@@ -19,6 +20,7 @@ public class CharacterCreator {
         character = new Character();
 
         name = (EditText) activity.findViewById(R.id.creating_name);
+        classe = (EditText) activity.findViewById(R.id.creating_class);
         levelbase = (EditText) activity.findViewById(R.id.creating_blvl);
         leveljob = (EditText) activity.findViewById(R.id.creating_jlvl);
         strength = (EditText) activity.findViewById(R.id.creating_str);
@@ -31,6 +33,7 @@ public class CharacterCreator {
 
     public Character getCharacter(){
         character.setName(name.getText().toString());
+        character.setClasse(classe.getText().toString());
         character.setLevelbase(levelbase.getText().toString());
         character.setLeveljob(leveljob.getText().toString());
         character.setStrength(strength.getText().toString());
@@ -53,6 +56,7 @@ public class CharacterCreator {
 
     public void loadCharacter(Character character) {
         name.setText(character.getName());
+        classe.setText(character.getClasse());
         levelbase.setText(character.getLevelbase());
         leveljob.setText(character.getLeveljob());
         strength.setText(character.getStrength());

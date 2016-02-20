@@ -22,6 +22,7 @@ public class CharacterDAO extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put("name",character.getName());
+        values.put("classe",character.getClasse());
         values.put("levelbase",character.getLevelbase());
         values.put("leveljob",character.getLeveljob());
         values.put("strength",character.getStrength());
@@ -39,6 +40,7 @@ public class CharacterDAO extends SQLiteOpenHelper {
         String ddl = "CREATE TABLE " + TABELA
                 + " (id INTEGER PRIMARY KEY, "
                 + " name TEXT NOT NULL, "
+                + " classe TEXT, "
                 + " levelbase TEXT, "
                 + " leveljob TEXT, "
                 + " strength TEXT, "
@@ -53,7 +55,7 @@ public class CharacterDAO extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "DROP TABLE IF EXSITS " + TABELA;
+        String sql = "DROP TABLE IF EXISTS " + TABELA;
         db.execSQL(sql);
         onCreate(db);
     }
@@ -67,6 +69,7 @@ public class CharacterDAO extends SQLiteOpenHelper {
 
             character.setId((int) c.getLong(c.getColumnIndex("id")));
             character.setName(c.getString(c.getColumnIndex("name")));
+            character.setClasse(c.getString(c.getColumnIndex("classe")));
             character.setLevelbase(c.getString(c.getColumnIndex("levelbase")));
             character.setLeveljob(c.getString(c.getColumnIndex("leveljob")));
             character.setStrength(c.getString(c.getColumnIndex("strength")));
@@ -86,6 +89,7 @@ public class CharacterDAO extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put("name", character.getName());
+        values.put("classe", character.getClasse());
         values.put("levelbase", character.getLevelbase());
         values.put("leveljob", character.getLeveljob());
         values.put("strength", character.getStrength());

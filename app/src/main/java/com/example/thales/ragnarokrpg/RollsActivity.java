@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-//Need to implements this Activity
 
 public class RollsActivity extends AppCompatActivity {
 
@@ -15,7 +14,7 @@ public class RollsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_rolls);
+        setContentView(R.layout.activity_rolls);
         final Character character = (Character) getIntent().getSerializableExtra(SELECTED_CHARACTER);
         final TextView rolls_result = (TextView)findViewById(R.id.rolls_result);
         Button meleeRoll = (Button)findViewById(R.id.button_melee_roll);

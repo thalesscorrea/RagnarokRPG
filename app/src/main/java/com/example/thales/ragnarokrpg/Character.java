@@ -1,11 +1,14 @@
 package com.example.thales.ragnarokrpg;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.Random;
 
 public class Character implements Serializable {
     private Integer id;
     private String name;
+    private String classe;
     private String levelbase;
     private String leveljob;
     private String strength;
@@ -30,6 +33,14 @@ public class Character implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getClasse() {
+        return classe;
+    }
+
+    public void setClasse(String classe) {
+        this.classe = classe;
     }
 
     public String getLevelbase() {
@@ -102,58 +113,147 @@ public class Character implements Serializable {
     }
 
     public String getMeleeDamage() {
-        int numberOfDices = Integer.parseInt(this.getStrength())/10+Integer.parseInt(this.getStrength())/100+Integer.parseInt(this.getDexterity())/50+Integer.parseInt(this.getLuck())/50;
-        //Need to implements the dices rolls
-        return null;
+
+        int strengthDamage = Integer.parseInt(this.getStrength())/10;
+        int strengthBonusDamage = Integer.parseInt(this.getStrength())/100;
+        int dexterityDamage = Integer.parseInt(this.getDexterity())/50;
+        int luckDamage = Integer.parseInt(this.getLuck())/50;
+
+        int numberOfDices = strengthDamage+strengthBonusDamage+dexterityDamage+luckDamage;
+
+        Random dice = new Random();
+        String meleeDamage = null;
+        for (int i = 0 ; i<numberOfDices ; i++){
+            if(i==0){
+                int roll = dice.nextInt(10)+1;
+                meleeDamage = String.valueOf(roll);
+                i++;
+            }
+            int roll = dice.nextInt(10)+1;
+            meleeDamage = meleeDamage + "+" + String.valueOf(roll);
+        }
+        return meleeDamage;
     }
 
     public String getRangedDamage() {
-        //Need to implements the dices rolls
-        return null;
+        int strengthDamage = Integer.parseInt(this.getStrength())/50;
+        int dexterityDamage = Integer.parseInt(this.getDexterity())/10;
+        int dexterityBonusDamage = Integer.parseInt(this.getDexterity())/100;
+        int luckDamage = Integer.parseInt(this.getLuck())/50;
+
+        int numberOfDices = strengthDamage+dexterityDamage+dexterityBonusDamage+luckDamage;
+
+        Random dice = new Random();
+        String rangedDamage = null;
+        for (int i = 0 ; i<numberOfDices ; i++){
+            if(i==0){
+                int roll = dice.nextInt(10)+1;
+                rangedDamage = String.valueOf(roll);
+                i++;
+            }
+            int roll = dice.nextInt(10)+1;
+            rangedDamage = rangedDamage + "+" + String.valueOf(roll);
+        }
+        return rangedDamage;
     }
 
     public String getMagicDamage() {
-        //Need to implements the dices rolls
-        return null;
+        int intelligenceDamage = Integer.parseInt(this.getIntelligence())/10;
+        int intelligenceBonusDamage = Integer.parseInt(this.getIntelligence())/20;
+        int dexterityDamage = Integer.parseInt(this.getDexterity())/50;
+        int luckDamage = Integer.parseInt(this.getLuck())/50;
+
+        int numberOfDices = intelligenceDamage+intelligenceBonusDamage+dexterityDamage+luckDamage;
+
+        Random dice = new Random();
+        String magicDamage = null;
+        for (int i = 0 ; i<numberOfDices ; i++){
+            if(i==0){
+                int roll = dice.nextInt(10)+1;
+                magicDamage = String.valueOf(roll);
+                i++;
+            }
+            int roll = dice.nextInt(10)+1;
+            magicDamage = magicDamage + "+" + String.valueOf(roll);
+        }
+        return magicDamage;
     }
 
     public String getPrecision() {
+        int dexterityPrecision = Integer.parseInt(this.getDexterity());
+        int luckPrecision = Integer.parseInt(this.getLuck())/3;
+        int precision = 175+dexterityPrecision+luckPrecision;
+
         Random dice = new Random();
-        int roll = dice.nextInt(10);
-        String precision = String.valueOf(175+(Integer.parseInt(this.getLevelbase())+Integer.parseInt(this.getDexterity())+(Integer.parseInt(this.getLuck())/5)*roll));
-        return precision;
+        int roll = dice.nextInt(10)+1;
+        String precisionRoll = String.valueOf(precision*roll);
+        return precisionRoll;
     }
 
     public String getDodge() {
+        int agilityDodge = Integer.parseInt(this.getDexterity());
+        int luckDodge = Integer.parseInt(this.getLuck())/5;
+        int dodge = 100+agilityDodge+luckDodge;
+
         Random dice = new Random();
-        int roll = dice.nextInt(10);
-        String dodge = String.valueOf(100 + (Integer.parseInt(this.getLevelbase()) + Integer.parseInt(this.getAgility()) + (Integer.parseInt(this.getLuck()) / 3) * roll));
-        return dodge;
+        int roll = dice.nextInt(10)+1;
+        String dodgeRoll = String.valueOf(dodge*roll);
+        return dodgeRoll;
     }
 
     public String getCritical() {
         Random dice = new Random();
-        int roll = dice.nextInt(100);
-        int critical = (int) (Integer.parseInt(this.getLuck())+0.3);
+        int roll = dice.nextInt(100)+1;
+        int critical = (int) (Integer.parseInt(this.getLuck())*0.3);
         if (roll>critical){
             return "Falha";
         } else {
-            return "Golpe critico";
+            return "Critical Hit!";
         }
     }
 
     public String getDefense() {
-        //Need to implements the dices rolls
-        return null;
+        int numberOfDices = Integer.parseInt(this.getVitality())/20+Integer.parseInt(this.getIntelligence())/50;
+        Random dice = new Random();
+        String defense = null;
+        for (int i = 0 ; i<numberOfDices ; i++){
+            if(i==0){
+                int roll = dice.nextInt(10)+1;
+                defense = String.valueOf(roll);
+                i++;
+            }
+            int roll = dice.nextInt(10)+1;
+            defense = defense + "+" + String.valueOf(roll);
+        }
+        return defense;
     }
 
     public String getMagicalDefense() {
-        //Need to implements the dices rolls
-        return null;
+        int numberOfDices = Integer.parseInt(this.getVitality())/50+Integer.parseInt(this.getIntelligence())/20;
+        Random dice = new Random();
+        String magicDefense = null;
+        for (int i = 0 ; i<numberOfDices ; i++){
+            if(i==0){
+                int roll = dice.nextInt(10)+1;
+                magicDefense = String.valueOf(roll);
+                i++;
+            }
+            int roll = dice.nextInt(10)+1;
+            magicDefense = magicDefense + "+" + String.valueOf(roll);
+        }
+        return magicDefense;
     }
 
     public String getPerfectDodge() {
-        //Need to implements the dices rolls
-        return null;
+        Random dice = new Random();
+        int roll = dice.nextInt(100);
+        int perfectDodge = ((Integer.parseInt(this.getLuck())*Integer.parseInt(this.getLuck()))/360)+Integer.parseInt(this.getLuck())/12;
+        if (roll>perfectDodge){
+            return "Falha";
+        } else {
+            return "Luck!";
+        }
     }
+
+
 }
