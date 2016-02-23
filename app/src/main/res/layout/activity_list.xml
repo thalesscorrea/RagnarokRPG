@@ -1,13 +1,10 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <ListView
         android:id="@+id/characters_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
     <Button
         android:id="@+id/creation_button"
         android:layout_width="56dp"
@@ -22,5 +19,4 @@
         android:text="+"
         android:textSize="40sp"
         android:textColor="#FFFFFF"/>
-
 </RelativeLayout>

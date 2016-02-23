@@ -55,7 +55,7 @@ public class ListActivity extends AppCompatActivity {
         characters = dao.getList();
         dao.close();
 
-        ArrayAdapter<Character> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, characters);
+        CharacterListAdapter adapter = new CharacterListAdapter(characters, this);
 
         charactersList.setAdapter(adapter);
     }
@@ -65,8 +65,20 @@ public class ListActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         final Character selectedCharacter = (Character) charactersList.getAdapter().getItem(info.position);
 
-        MenuItem deletar = menu.add("Deletar");
-        deletar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+        MenuItem rolls = menu.add("Rolar dados");
+        rolls.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent rolls = new Intent(ListActivity.this, RollsActivity.class);
+                rolls.putExtra(CreateCharacterActivity.SELECTED_CHARACTER, selectedCharacter);
+                startActivity(rolls);
+                return false;
+            }
+        });
+
+
+        MenuItem delete = menu.add("Deletar");
+        delete.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 CharacterDAO dao = new CharacterDAO(ListActivity.this);

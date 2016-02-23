@@ -8,7 +8,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class CreateCharacterActivity extends AppCompatActivity {
 
@@ -29,32 +32,44 @@ public class CreateCharacterActivity extends AppCompatActivity {
             creator.loadCharacter(characterToEdit);
         }
 
-        Button characterSave = (Button)findViewById(R.id.button_save);
-        Button characterRoll = (Button)findViewById(R.id.button_roll);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, CLASSES);
+        AutoCompleteTextView characterClass = (AutoCompleteTextView)findViewById(R.id.creating_class);
+        characterClass.setAdapter(adapter);
+    }
 
-        characterSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    private static final String[] CLASSES = new String[] {
+            "Aprendiz", "Espadachim", "Mago", "Mercador", "Gatuno", "Arqueiro", "Noviço",
+            "Cavaleiro", "Templário", "Bruxo", "Sábio", "Ferreiro", "Alquimista",
+            "Mercenário", "Arruaceiro", "Caçador", "Bardo", "Odalisca", "Sacerdote", "Monge",
+            "Lorde", "Paladino", "Arquimago", "Professor", "Mestre Ferreiro", "Criador",
+            "Algoz", "Desordeiro", "Atirador de Elite", "Menestrel", "Cigana", "Sumo Sacerdote", "Mestre",
+            "Taekwon", "Mestre Taekwon", "Espiritualista", "Ninja", "Justiceiro"
+    };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Log.i("Avisos","Menu inflando");
+        getMenuInflater().inflate(R.menu.menu_create_character, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case R.id.menu_character_creator_confirm:
                 Character character = creator.getCharacter();
                 if(creator.hasName()) {
                     CharacterDAO dao = new CharacterDAO(CreateCharacterActivity.this);
                     dao.insertOrAlterate(character);
                     dao.close();
                     finish();
+                    return true;
                 }else{
                     creator.noName();
                 }
-            }
-        });
-
-        characterRoll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent rolls = new Intent(CreateCharacterActivity.this, RollsActivity.class);
-                Character selectedCharacter = characterToEdit;
-                rolls.putExtra(CreateCharacterActivity.SELECTED_CHARACTER, selectedCharacter);
-                startActivity(rolls);
-            }
-        });
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
